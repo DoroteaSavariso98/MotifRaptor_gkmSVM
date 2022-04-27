@@ -44,14 +44,19 @@ optional arguments:
    
 ## Build a Complete Motif Database
 
-   (1) Download the testing database. 
+   (1) Download the testing database and the motif database. 
 
    ```
    wget https://www.dropbox.com/s/gxeyzgl5m0u55w8/Database.zip
    unzip Database.zip
    ```
+
+   ```
+   https://www.icloud.com/iclouddrive/02f4zlmFkkPEExN4aqPOL6KIQ#motifdatabase
+   unzip motifdatabase.zip
+   ```
    
-   Move the motif database directory found in this repo into the testing database just downloaded.
+   Move the motif database directory into the testing database just downloaded.
    
    Configuration for Motif-Raptor is to set up the absolute paths for general database and motif database.
    ```
@@ -434,23 +439,8 @@ optional arguments:
                         SNP motif pair-wise ID
 ```
 
-## Integration with other tools
-
-We also provide a Jupyter Notebook to show how to integrate DeepBind (or other external tools) in the step 2 of Motif-Raptor.
-
-https://github.com/pinellolab/MotifRaptor/blob/master/Document/Supplementary_Data_File_1.ipynb
-
-All the supporting files can be downloaded from this archive:
-
-https://github.com/pinellolab/MotifRaptor/raw/master/Document/deepbind_example.zip
 
 ## Conclusion
 
 In summary, Motif-Raptor is a computational toolkit to test the significance of the effects of genetic variants from GWAS analyses on transcription factor binding sites. We believe that its adoption will help the genomic community in prioritizing potential cell type-specific, causal variants from GWAS summary statistics and to generate important hypotheses and insights to the mechanisms of action of genetic variants in complex disease.
-
-## Contact
-
-Luca Pinello: lpinello at mgh.harvard.edu
-
-Qiuming Yao: yao.ornl at gmail.com
 
