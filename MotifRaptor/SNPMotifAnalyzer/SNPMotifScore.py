@@ -29,14 +29,12 @@ def main():
             file3.close()
 
 
-    if args.models == None:
-        tfs = []
+    tfs = []
+    if args.models=="all":
         for i in os.listdir(gkm_folder+"/gkmsvm_models"):
             if i.endswith(".model.txt"):
                 tfs.append(i.rstrip().split("_")[0])
-
-    if args.models != None:
-        tfs = []
+    else:
         for i in (args.models).rstrip().split(","):
             tfs.append(i.upper())
 

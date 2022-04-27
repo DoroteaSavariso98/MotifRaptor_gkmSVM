@@ -113,7 +113,7 @@ def main():
 
     parser_h = subparsers.add_parser('gkm_snpscan', help='scan SNP database (using gkmSVM models) help')
     parser_h.add_argument('-b', '--background', type=str, help='background snp filename',dest="background_snp")    
-    #parser_h.add_argument('-m', '--models', type=str, help='models names',dest="models")    
+    parser_h.add_argument('-m', '--models', type=str, help='models names',dest="models")    
     parser_h.add_argument('-o', '--motifscan_output', type=str, action='store', default='./motifscanfiles', help='Motif Scan Ouput Folder',dest="outputmotifscandir")
     parser_h.add_argument('-p', '--threads', type=int, help='number of threads',dest="thread_num")
 
@@ -457,13 +457,13 @@ def main():
     elif args.command=="gkm_snpscan":
         background_snp_filename=args.background_snp
         gkm_score_folder=os.path.join(package_path_2,"gkm_score/")
-        #models=args.models
+        models=args.models
         outputmotifscandir=args.outputmotifscandir
         
         snpmotifscore_command="python3 "+os.path.join(package_path,"SNPMotifAnalyzer/SNPMotifScore.py") \
         +" -b "+background_snp_filename \
-        +" -wd"+gkm_score_folder
-        #+" -m "+models \       
+        +" -wd"+gkm_score_folder \
+        +" -m "+models \
         +" -o "+ outputmotifscandir
         print("Command : snpmotifscore_command")
         status=os.system(snpmotifscore_command)
