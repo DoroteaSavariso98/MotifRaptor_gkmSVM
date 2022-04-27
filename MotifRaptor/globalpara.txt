@@ -1,0 +1,3 @@
+para	value
+databasedir	/Users/dorotea/Desktop/Tesi/MR/MR_test_2/Database/hg19/
+motifdatabasedir	/Users/dorotea/Desktop/Tesi/MR/MR_test_2/Database/hg19/motifdatabase/
