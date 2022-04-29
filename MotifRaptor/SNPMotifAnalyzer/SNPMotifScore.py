@@ -42,13 +42,14 @@ def main():
     print("Command: generating score files for SNPs...")
 
     subprocess.call('set -e', shell=True)
-    subprocess.call('rm -rf '+gkm_folder+'/data ' +outdir+ '/motifscanfiles', shell=True)
-    subprocess.call('mkdir '+gkm_folder+'/data ' +outdir+ '/motifscanfiles', shell=True)
+    subprocess.call('rm -rf '+gkm_folder+'/data ' +outdir, shell=True)
+    subprocess.call('mkdir '+gkm_folder+'/data ' +outdir, shell=True)
     print("Generating allelic sequences...")
     subprocess.call('python3 '+gkm_folder+'/scripts/generate_allelic_seqs.py -f '+gkm_folder+'/genome/hg19.fa -s '+gkm_folder+'/input_snp.tsv -o '+gkm_folder+'/data/selex_allelic_oligos', shell=True)
     df = pd.DataFrame()
     for tf in tfs:
-        subprocess.call('mkdir '+gkm_folder+'/out '+gkm_folder+'/log', shell=True)
+        subprocess.call('rm -rf '+gkm_folder+'out '+gkm_folder+'log', shell=True)
+        subprocess.call('mkdir '+gkm_folder+'out '+gkm_folder+'log', shell=True)
         print("Generating binding scores for {0}...".format(tf))
         model = os.path.basename(''.join(glob.glob(gkm_folder+'/gkmsvm_models/' + tf + '*.model.txt')))
         subprocess.call(gkm_folder+'/scripts/gkmpredict '+gkm_folder+'/data/selex_allelic_oligos.ref.fa '+gkm_folder+'/gkmsvm_models/' + model + ' '+gkm_folder+'/out/' + tf + '.ref.gkm.tsv &>'+gkm_folder+'/log/gkmpredict.ref.log', shell=True)
@@ -64,7 +65,7 @@ def main():
         file2 = pd.read_csv(gkm_folder+'/out/' + tf + '.delta.tsv', sep='\t', header=None)
         df['deltaSVM_score'] = file2[1]
         subprocess.call('rm -rf '+gkm_folder+'/out '+gkm_folder+'/log', shell=True)
-    df.to_csv(outdir+ '/motifscanfiles/' + tf + '.scores', sep = '\t', index=False)  
+    df.to_csv(outdir+ '/' + tf + '.scores', sep = '\t', index=False)  
 
 if __name__ == "__main__":
     start_time = time.time()

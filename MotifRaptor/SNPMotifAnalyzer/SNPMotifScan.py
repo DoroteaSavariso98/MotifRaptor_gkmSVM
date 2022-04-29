@@ -858,7 +858,7 @@ def run_gkm_scale(motif_scan_folder, outputmotifscandir, numberofthreads):
         if file.endswith(tuple(ext)):
             motif_id=os.path.basename(file).replace(".scores","")
             motif_id_list.append(motif_id)
-    p=multiprocess.Pool(processes=numberofthreads)
+    p=multiprocessing.Pool(processes=numberofthreads)
     combine_func=partial(write_gkm_scale_file, motif_scan_folder, outputmotifscandir)
     p.map(combine_func, motif_id_list)
     p.close()

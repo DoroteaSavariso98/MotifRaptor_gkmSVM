@@ -82,7 +82,7 @@ optional arguments:
    
    (3) Scan motifs using all the gkm models on this SNP list (otherwise type a comma-separated list of models in the argument -m)
    ```
-   MotifRaptor gkm_snpscan -b 1000G.EUR.QC.plink.simple.vcf -m all -o ./motifdatabase/motifscanfiles -p 4
+   MotifRaptor gkm_snpscan -b 1000G.EUR.QC.plink.simple.vcf -m all -o Database/hg19/motifdatabase/motifscanfiles -p 4
    ```
 
 

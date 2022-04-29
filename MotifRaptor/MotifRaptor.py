@@ -462,10 +462,10 @@ def main():
         
         snpmotifscore_command="python3 "+os.path.join(package_path,"SNPMotifAnalyzer/SNPMotifScore.py") \
         +" -b "+background_snp_filename \
-        +" -wd"+gkm_score_folder \
+        +" -wd "+gkm_score_folder \
         +" -m "+models \
         +" -o "+ outputmotifscandir
-        print("Command : snpmotifscore_command")
+        print("Command: snpmotifscore_command")
         status=os.system(snpmotifscore_command)
         print("Done!!!")
 
@@ -474,7 +474,7 @@ def main():
             +" -s " + outputmotifscandir\
             +" -mo " + outputmotifscandir\
             +" -p "+str(args.thread_num)
-        print("Command : snpmotifscale_command")
+        print("Command: snpmotifscale_command")
         status=os.system(snpmotifscale_command)
 
         print("Done!!!")
