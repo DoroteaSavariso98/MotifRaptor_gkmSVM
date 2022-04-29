@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import argparse
 import multiprocessing
+import subprocess
 from functools import partial
 
 def getseq_from_genome(from_genome, chromosomenum, start_pos, end_pos):    
@@ -1111,9 +1112,9 @@ def sequence_motif_score_gkm(sequence, motif_id, gkm_score_folder):
     subprocess.call('mkdir ' +gkm_score_folder+ '/snpmotif '+gkm_score_folder+ '/log', shell=True)
     fasta = open(gkm_score_folder+"/seq.fa", "w")
     fasta.write(">{0}\n{0}".format(sequence))
-    motif_gkm_filename=os.path.join(gkm_score_folder+'/gkmsvm_models/', motif_id+"*.model.txt")
+    motif_gkm_filename=os.path.abspath(''.join(glob.glob(gkm_score_folder+'/gkmsvm_models/'+motif_id+'*.model.txt')))
     subprocess.call(gkm_score_folder+'/scripts/gkmpredict ' +gkm_score_folder+ '/seq.fa ' +motif_gkm_filename+ ' ' +gkm_score_folder+ '/snpmotif/' + motif_id + '.tsv &>'+gkm_score_folder+'/log/gkmpredict.log', shell=True)
-    score_df = pd.read_csv(gkm_score_folder+ '/snpmotif/' + motif_id + '.tsv',sep="\t")
+    score_df = pd.read_csv(gkm_score_folder+ '/snpmotif/' + motif_id + '.tsv', sep="\t", header=None)
     score = score_df[1]
     subprocess.call('rm -rf ' +gkm_score_folder+ '/snpmotif '+gkm_score_folder+ '/log', shell=True)
     return score

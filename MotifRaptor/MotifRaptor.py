@@ -272,12 +272,11 @@ def main():
         motif_list_filename=args.motif_list
         motif_expression_folder=os.path.join(package_path_1,"TF_expression")
         motif_expression_filename=os.path.join(motif_expression_folder,expressionaccession+".tsv")
-        motif_pfm_folder=os.path.join(package_path_2,"pfmfiles")
+        gkm_score_folder=os.path.join(package_path_2,"gkm_score")
         motif_scan_folder=os.path.join(package_path_2,"motifscanfiles")
         output_filename=os.path.join(args.workdir,"result_new_df_motifs_"+tissue_id+".txt")
         num_of_threads=args.thread_num
 
-        gkm_score_folder=os.path.join(package_path_2,"gkm_score/")
         snpmotifscan_command="python3 "+os.path.join(package_path,"SNPMotifAnalyzer/SNPMotifScan.py gkm_scan") \
         +" -t "+target_snp_filename \
         +" -bg "+background_snp_filename \
