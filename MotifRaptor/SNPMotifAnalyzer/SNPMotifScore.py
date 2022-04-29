@@ -68,7 +68,4 @@ def main():
     df.to_csv(outdir+ '/' + tf + '.scores', sep = '\t', index=False)  
 
 if __name__ == "__main__":
-    start_time = time.time()
     main()
-    print("Finished in "+  str((time.time() - start_time)/60) + " minutes!")
-
