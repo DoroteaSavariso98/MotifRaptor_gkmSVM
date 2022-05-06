@@ -1,0 +1,13 @@
+Pipeline for trial on 1 TF (e.g. GATA1)
+
+1) Scoring of target SNPs
+python3 SNPMotifScore.py -t hitSNP_list.vcf -wd motifdatabase/gkm_score -m gata1 -o motifdatabase/motifscanfiles
+
+2) Rename output (e.g. GATA1.scores -> GATA1_t.scores)
+
+3) Scoring of background SNPs
+python3 SNPMotifScore.py -b 1000G.EUR.QC.plink.simple.vcf -wd motifdatabase/gkm_score -m gata1 -o motifdatabase/motifscanfiles
+
+4) Rename output (e.g. GATA1.scores -> GATA1_bg.scores)
+
+5) Run cells in notebook.ipynb, inserting path and filename of target and background files in the 3rd cell
