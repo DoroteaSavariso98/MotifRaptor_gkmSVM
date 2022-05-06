@@ -1,5 +1,7 @@
 Pipeline for trial on 1 TF (e.g. GATA1)
 
+0) Download motifdatabase folder from https://www.icloud.com/iclouddrive/02f4zlmFkkPEExN4aqPOL6KIQ#motifdatabase and unzip it
+
 1) Scoring of target SNPs
 python3 SNPMotifScore.py -t hitSNP_list.vcf -wd motifdatabase/gkm_score -m gata1 -o motifdatabase/motifscanfiles
 
