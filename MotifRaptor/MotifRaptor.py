@@ -455,7 +455,7 @@ def main():
 
     elif args.command=="gkm_snpscan":
         background_snp_filename=args.background_snp
-        gkm_score_folder=os.path.join(package_path_2,"gkm_score/")
+        gkm_score_folder=os.path.join(package_path_2,"gkm_score")
         models=args.models
         outputmotifscandir=args.outputmotifscandir
         
